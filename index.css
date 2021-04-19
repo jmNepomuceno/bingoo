@@ -21,3 +21,7 @@ main{
     height:50%;
     border:1px solid black;
 }
+
+.board-section{
+    background: lightgreen;
+}
