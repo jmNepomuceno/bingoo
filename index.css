@@ -34,25 +34,75 @@ main{
     bottom: 0;
 }
 
+.div-card-section .card-section header{
+    position: absolute;
+    top:3%;
+    width:100%;
+    height: 20%;
+    font-size:3.4vw;
+    text-align:center;
+    letter-spacing: 0.5em;
+    overflow:hidden;
+    font-weight: bold;
+    color: #e5e5e6;
+}
+
+.div-card-section .card-section header spam{
+    position: absolute;
+    left:15%;
+}
+
 .div-card-section .card-section .card-body{
     position:absolute;
     width:80%;
     height:70%;
     top:20%;
-    left:5%;
+    left:10%;
     border: 1px solid white;
 }
 
-.div-card-section .card-section header{
-    width:100%;
-    height: 20%;
-    font-size:4vw;
-    text-align:right;
-    letter-spacing: 30px;
-    overflow:hidden;
-    font-weight: bold;
-    color: #e5e5e6;
+.div-card-section .card-section .card-body .card-letter{
+    width:20%;
+    height:100%;
+    float:left;
 }
+
+.div-card-section .card-section .card-body .card-letter .card-1-letter-B-rows,
+.div-card-section .card-section .card-body .card-letter .card-2-letter-B-rows{
+    width:100%;
+    height:20%;
+    border:1px solid white;
+}
+
+.div-card-section .card-section .card-body .card-letter .card-1-letter-I-rows,
+.div-card-section .card-section .card-body .card-letter .card-2-letter-I-rows{
+    width:100%;
+    height:20%;
+    border:1px solid white;
+}
+
+.div-card-section .card-section .card-body .card-letter .card-1-letter-N-rows,
+.div-card-section .card-section .card-body .card-letter .card-2-letter-N-rows{
+    width:100%;
+    height:20%;
+    border:1px solid white;
+}
+
+.div-card-section .card-section .card-body .card-letter .card-1-letter-G-rows,
+.div-card-section .card-section .card-body .card-letter .card-2-letter-G-rows{
+    width:100%;
+    height:20%;
+    border:1px solid white;
+}
+
+.div-card-section .card-section .card-body .card-letter .card-1-letter-O-rows,
+.div-card-section .card-section .card-body .card-letter .card-2-letter-O-rows{
+    width:100%;
+    height:20%;
+    border:1px solid white;
+}
+
+
 
 .board-section{
     position: absolute;
