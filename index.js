@@ -57,3 +57,5 @@ for(let i = 1; i <= 5; i++){
     console.log(b_numbers)
 }
 
+const card_1_letter_I_row_box = document.getElementById('card-1-letter-I-row-1')
+card_1_letter_I_row_box.textContent = "kyla"
