@@ -17,45 +17,71 @@ for(let card = 1; card <= 2; card++){
 }
 
 // setting numbers for each box
-let b_numbers = []
-let i_numbers = []
-let n_numbers = []
-let g_numbers = []
-let o_numbers = []
+let b_numbers_1 = []
+let i_numbers_1 = []
+let n_numbers_1 = []
+let g_numbers_1 = []
+let o_numbers_1 = []
 
-for(let i = 1; i <= 15; i++){
-    b_numbers.push(i)
-}
-for(let i = 16; i <= 30; i++){
-    i_numbers.push(i)
-}
-for(let i = 31; i <= 45; i++){
-    n_numbers.push(i)
-}
-for(let i = 46; i <= 60; i++){
-    g_numbers.push(i)
-}
-for(let i = 61; i <= 75; i++){
-    o_numbers.push(i)
-}
+let b_numbers_2 = []
+let i_numbers_2 = []
+let n_numbers_2 = []
+let g_numbers_2 = []
+let o_numbers_2 = []
 
-for(let i = 1; i <= 5; i++){
-    const card_1_letter_B_row_box = document.getElementById('card-1-letter-B-row-' + i)
-    let randNum = Math.floor(Math.random() * b_numbers.length) + 1
-    card_1_letter_B_row_box.textContent = randNum
+generateNumbers(1 ,'B', 1 , 15 , b_numbers_1)
+generateNumbers(1 ,'I', 16 ,30 , i_numbers_1)
+generateNumbers(1 ,'N', 31 , 45 , n_numbers_1)
+generateNumbers(1 ,'G', 46 , 60 , g_numbers_1)
+generateNumbers(1 ,'O', 61 , 75 , o_numbers_1)
 
-    for(let j = 0; j < 15; j++){
-        if(b_numbers[j] == randNum){
-            var randNum_index = j
-            break
+generateNumbers(2 ,'B', 1 , 15 , b_numbers_2)
+generateNumbers(2 ,'I', 16 ,30 , i_numbers_2)
+generateNumbers(2 ,'N', 31 , 45 , n_numbers_2)
+generateNumbers(2 ,'G', 46 , 60 , g_numbers_2)
+generateNumbers(2 ,'O', 61 , 75 , o_numbers_2)
+
+
+function generateNumbers(card_number , letter , start , end, letter_arr){
+    for(let i = 1; i <= 5; i++){
+        const card_row = document.getElementById('card-' + card_number + '-letter-' + letter + '-row-' + i)
+        let randNum = Math.floor(Math.random() * (end - start + 1)) + start
+
+        while((letter_arr.includes(randNum))){
+            randNum = Math.floor(Math.random() * (end - start + 1)) + start
+
         }
+    
+        card_row.textContent = randNum
+        letter_arr.push(randNum)
     }
-
-    console.log(randNum_index)
-
-    b_numbers.splice(randNum_index, 1)
-    console.log(b_numbers)
 }
 
-const card_1_letter_I_row_box = document.getElementById('card-1-letter-I-row-1')
-card_1_letter_I_row_box.textContent = "kyla"
+
+const free_box_1 = document.getElementById('card-1-letter-N-row-3')
+const free_box_2 = document.getElementById('card-2-letter-N-row-3')
+
+free_box_1.textContent = "FREE"
+free_box_2.textContent = "FREE"
+
+// making the bingo body numbers boxes
+let bingo_body_start_number = 1;
+let bingo_body_end_number = 15;
+for(let i of bingo_arr){
+
+    const col = document.getElementById('bingo-body-letter-' + i)
+
+    for(let j = bingo_body_start_number; j <= bingo_body_end_number; j++){
+        const row = document.createElement('h2')
+
+        row.className = 'bingo-body-letter-' + i + '-boxes'
+        row.id = 'bingo-body-letter-' + i + '-boxes-' + j
+        row.textContent = j
+        col.appendChild(row)
+    }   
+
+    bingo_body_start_number += 15
+    bingo_body_end_number += 15
+}
+
+
