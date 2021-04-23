@@ -17,5 +17,43 @@ for(let card = 1; card <= 2; card++){
 }
 
 // setting numbers for each box
+let b_numbers = []
+let i_numbers = []
+let n_numbers = []
+let g_numbers = []
+let o_numbers = []
 
+for(let i = 1; i <= 15; i++){
+    b_numbers.push(i)
+}
+for(let i = 16; i <= 30; i++){
+    i_numbers.push(i)
+}
+for(let i = 31; i <= 45; i++){
+    n_numbers.push(i)
+}
+for(let i = 46; i <= 60; i++){
+    g_numbers.push(i)
+}
+for(let i = 61; i <= 75; i++){
+    o_numbers.push(i)
+}
+
+for(let i = 1; i <= 5; i++){
+    const card_1_letter_B_row_box = document.getElementById('card-1-letter-B-row-' + i)
+    let randNum = Math.floor(Math.random() * b_numbers.length) + 1
+    card_1_letter_B_row_box.textContent = randNum
+
+    for(let j = 0; j < 15; j++){
+        if(b_numbers[j] == randNum){
+            var randNum_index = j
+            break
+        }
+    }
+
+    console.log(randNum_index)
+
+    b_numbers.splice(randNum_index, 1)
+    console.log(b_numbers)
+}
 
