@@ -84,4 +84,66 @@ for(let i of bingo_arr){
     bingo_body_end_number += 15
 }
 
+// roll for next ball or number
+const roll_btn = document.getElementById('roll-btn')
+
+roll_btn.addEventListener('click' , function(){
+    const bingo_title = document.querySelectorAll('.bingo-title-letters')
+    let letter_index = 0
+    let timer = 0
+    let number_timer = 0
+    let letter_rolled
+
+    let letter_interval = setInterval(function(){
+
+        bingo_title[letter_index].style.borderColor = '#3e3f42'
+        letter_index = Math.floor(Math.random() * 5);
+        bingo_title[letter_index].style.borderColor = '#ff9900'
+        letter_rolled = bingo_title[letter_index].textContent
+        timer += 1
+
+        if(timer == 40){
+            timer = 0
+            clearInterval(letter_interval)
+
+            let start
+            let end
+            let number_interval = setInterval(function(){
+                const bingo_numbers = document.querySelectorAll('.bingo-body-letter-' + letter_rolled + '-boxes')
+                
+                if(letter_rolled == 'B'){
+                    start = 1
+                    end = 15
+                }else if(letter_rolled == 'I'){
+                    start = 16
+                    end = 30
+                }else if(letter_rolled == 'N'){
+                    start = 31
+                    end = 45
+                }else if(letter_rolled == 'G'){
+                    start = 46
+                    end = 60
+                }else if(letter_rolled == 'O'){
+                    start = 61
+                    end = 75
+                }
+
+                bingo_numbers[letter_index].style.borderColor = 'white'
+                letter_index = Math.floor(Math.random() * 15)
+                bingo_numbers[letter_index].style.borderColor = '#ff9900'
+                number_timer += 1
+
+                if(number_timer == 40){
+                    number_timer = 0
+                    clearInterval(number_interval)
+                }
+            },100)
+        }
+
+    } , 100)
+      
+}, false)
+
+//
+
 
